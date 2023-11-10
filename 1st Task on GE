@@ -1,0 +1,35 @@
+<template>
+  <div>
+    <h1>{{ title }}</h1>
+    <img :src="imageUrl" alt="Embedded Image" v-if="showImage" />
+    <p v-if=" !showImage">First Number : {{ num1 }}</p>
+    <p v-if=" !showImage">Second Number : {{ num2 }}</p>
+    <button v-if=" !showImage" @click="computeProduct">Calculate Product</button>
+    <p v-if="showImage">Multiplication Result: {{ product }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      title: 'Compute Product',
+      imageUrl: 'https://w0.peakpx.com/wallpaper/1002/15/HD-wallpaper-flying-boeing-777x-airplane-blue-sky-boeing-777x-airliner-passenger-planes-boeing-777x.jpg',
+      showImage: false,
+      num1: 3,  
+      num2: 3, 
+      product: null,
+
+    };
+  },
+  methods: {
+    computeProduct(){
+      this.product =this.num1 * this.num2;
+      this.showImage = true;
+   },
+  },
+};
+</script>
+
+<style scoped>
+</style>
